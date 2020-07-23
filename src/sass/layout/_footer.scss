@@ -1,0 +1,16 @@
+.footer {
+    padding: 2rem 0;
+    background-color: $color-grey-dark-3;
+
+   
+
+
+    &__legal {
+        
+        font-size: $default-font-size;
+        color: $color-white;
+        text-align: center;
+       
+    }
+
+}

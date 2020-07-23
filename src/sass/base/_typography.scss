@@ -1,0 +1,102 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    color: $color-grey-dark;
+    line-height: 1.7;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    
+}
+
+
+.heading-primary {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: $m-md;
+    color: #fff;
+
+    
+
+
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        line-height: 1.1;
+        font-weight: 300;
+        letter-spacing: -.8;
+
+        @include respond(tab-port) {
+            font-size: 5rem;
+            letter-spacing: 2rem;
+        }
+
+        @include respond(phone) {
+            font-size: 3.2rem;
+            line-height: 1.25;
+            letter-spacing: .7rem;
+        }
+    }
+
+    &--sub {
+        display: block;
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 1rem;
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+            letter-spacing: .7rem;
+        }
+
+        @include respond(phone) {
+            font-size: 2rem;
+            letter-spacing: 3px;
+        }
+    }
+}
+
+.heading-secondary {
+    font-size: 3rem;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: $m-md;
+    color: $color-primary-light;
+
+    &--white {
+        font-size: 3rem;
+        line-height: 1.3;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: $m-md;
+        color: #ffffff;
+    }
+    
+
+    @supports (-webkit-background-clip: text) {
+        background-image: linear-gradient(to left, $color-primary-light 40%, $color-secondary-light 70%);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+.heading-tertiary {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: $m-sm;
+}
+
+.paragraph {
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}

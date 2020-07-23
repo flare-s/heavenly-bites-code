@@ -1,0 +1,163 @@
+.cta-box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+    height: 50rem;
+    background-image: linear-gradient(to bottom, rgba($color-primary-light, .3) 30%, rgba($color-primary-dark, .3) 70%),
+    url(../img/healthy-1x.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @supports (clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%)) or (-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%)) {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%);
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%);
+    }
+
+    
+
+
+
+    @include responsive(min-width, $phone) {
+            background-image: linear-gradient(
+             to right bottom,
+             rgba($color-primary-light, .3),
+             rgba($color-primary-dark, .3)),
+             url(../img/healthy-2x.jpg);
+    }
+
+    @include respond($phone) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.3),
+            rgba($color-primary-dark, 0.3)),
+            url(../img/healthy-sm-1x.jpg);
+    }
+
+    
+
+
+    @include responsive(max-width, $phone) {
+        background-image: linear-gradient(
+             to right bottom,
+             rgba($color-primary-light, .3),
+             rgba($color-primary-dark, .3)),
+            url(../img/healthy-sm-2x.jpg);
+    }
+}
+
+.section-about {
+    min-height: 100vh;
+    background-color: $color-grey-light-1;
+    padding: 10rem 0;
+}
+
+.section-features {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10rem 0;
+    background-image: linear-gradient(to bottom, rgba($color-primary-light, .8) 30%, rgba($color-primary-dark, .8) 70%),
+    url('../img/join-1x.jpg');
+    background-size: cover;
+    background-position: center;
+
+
+    @include responsive(min-width, $phone) {
+        background-image: linear-gradient(to bottom, 
+            rgba($color-primary-light, .8) 30%,
+            rgba($color-primary-dark, .8) 70%),
+            url('../img/join-2x.jpg');
+    }
+
+
+
+    @include respond($phone) {
+        background-image: linear-gradient(to bottom, 
+            rgba($color-primary-light, .8) 30%,
+            rgba($color-primary-dark, .8) 70%),
+            url('../img/join-sm-1x.jpg');
+    }
+
+    @include responsive(max-width, $phone) {
+        background-image: linear-gradient(to bottom, 
+            rgba($color-primary-light, .8) 30%,
+            rgba($color-primary-dark, .8) 70%),
+            url('../img/join-sm-2x.jpg');
+    }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        display: block;
+    }
+    
+}
+
+.section-plans {
+    padding: 10rem 0;
+    background-color: $color-grey-light-1;
+}
+
+.section-feedback {
+    padding: 15rem 0;
+    position: relative;
+
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+
+.book {
+    position: relative;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    background-image: linear-gradient(to right, rgba($color-primary-dark, .5) 50%, transparent 50%),
+    url(../img/join.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    background-color: rgba($color-grey-light-1, .8);
+    @include respond(tab-land) {
+        background-image: linear-gradient(to right, rgba($color-primary-dark, .5) 65%, transparent 35%),
+        url(../img/join.jpg);
+    }
+
+    @include respond(tab-port) {
+        background-image: linear-gradient(to right, rgba($color-primary-dark, .5) 100%, transparent 0),
+        url(../img/join.jpg);
+    }
+   
+
+    &__form {
+        width: 50%;
+        padding: 5rem;
+        @include respond(tab-land) {
+            width: 65%;
+        }
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
+        
+    }
+}
+
+
+.location {
+    padding: 8rem 0;
+    background-color: $color-grey-light-1;
+}
+
+.map {
+    min-width: 200px;
+    width: 100%;
+    min-height: 40rem;
+    border: 4px solid rgba($color-primary-light, .8);
+    border-radius: 5px;
+}
+
+  
+  

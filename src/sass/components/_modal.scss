@@ -1,0 +1,32 @@
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    padding: 10rem 0;
+    background-color: rgba($color-primary, .7);
+    transition: vaisibility .5s, .5s opacity;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 15;
+
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    &:target .book {
+        opacity: 1;
+    }
+
+    &__close {
+        font-size: 3rem;
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        text-decoration: none;
+        color: #fff;
+    }
+}

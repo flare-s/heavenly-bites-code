@@ -1,0 +1,201 @@
+.navigation {
+    
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        height: 50px;
+        width: 50px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        margin-top: 5px;
+        display: none;
+
+        @include respond(tab-port) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            margin-left: auto;
+            z-index: 5;
+        }
+        
+        
+    }
+
+    &__icon {
+        height: 3px;
+        width: 3rem;
+        background-color: #000;
+        position: relative;
+    
+
+
+        &::before {
+            content: "";
+            height: 3px;
+            width: 3rem;
+            background-color: #000;
+            display: inline-block;
+            position: absolute;
+            top: -.8rem;
+            left: 0;
+            transition: .3s ease-in-out;
+
+            
+        }
+
+        &::after {
+            content: "";
+            height: 3px;
+            width: 3rem;
+            background-color: #000;
+            display: inline-block;
+            position: absolute;
+            top: .8rem;
+            left: 0;
+            transition: .3s ease-in-out;
+            
+        }
+        
+        
+    }
+
+    &__button:hover &__icon::before {
+        transform: translateY(-.2rem);
+    }
+
+    &__button:hover &__icon::after {
+        transform: translateY(.2rem);
+    }
+    
+    
+    &__nav {
+        @include respond(tab-port) {
+            height: 100vh;
+            background-color: rgba( $color-primary-dark, .7);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            visibility: hidden;
+            transition: width .5s ease-in-out, visibility .5s;
+            
+           
+            
+            
+        }
+    }
+    &__list {
+        display: flex;
+        list-style: none;
+        margin-right: 10px;
+        @include respond(tab-port) {
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+            
+            
+        }
+    }
+
+    &__link {
+
+        &:link,
+        &:visited {
+            display: inline-block;
+            text-decoration: none;
+            color: $color-white;
+            text-transform: uppercase;
+            padding: 16px 0;
+            border-bottom: .2rem solid transparent;
+            position: relative;
+            transition: border-bottom .3s, color .3s;
+
+            
+
+            @include respond(tab-port) {
+                display: block;
+                width: 100%;
+                border-bottom: 2px solid rgba( #fff, .5);
+                background-image: linear-gradient(45deg, transparent 50%, $color-primary-light 50%);
+                background-size: 300%;
+                background-position: 0;
+                transition: background-position .5s ease-in-out;
+            }
+
+        }
+
+        &:hover,
+        &:active {
+            color: rgba($color-grey-light-2, $alpha: .8);
+            border-bottom: 2px solid rgba($color-grey-light-2, .8);
+            @include respond(tab-port) {
+                border-bottom: 2px solid rgba( #fff, .5);
+                background-position: 100%;
+            }
+        }
+
+    }
+
+    &__checkbox:checked ~ &__nav {
+        width: 40%;
+        visibility: visible;
+    }
+
+    
+}
+
+
+
+
+.hide {
+    opacity: 0;
+}
+
+.fixed-nav {
+    background-color: rgba($color-primary-light, .7);
+    position: fixed;
+    width: 100%;
+    opacity: 1;
+}
+
+.bubble {
+    position: absolute;
+    background-color: rgba( $color-secondary-light, .7);
+    border-radius: 10px;
+    z-index: -2;
+    transition: all 1s;
+
+    @include respond(tab-port) {
+        display: none;
+    }
+}

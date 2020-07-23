@@ -1,0 +1,56 @@
+.feature-box {
+    background-color: rgba(#fff, .6);
+    padding: 2.5rem;
+    transition: box-shadow .2s, transform .2s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+    //the width is for explorer 11 bug
+     @include respond(tab-port) {
+        width: 70%;
+        max-width: 30rem;
+    }
+
+
+    &:not(:last-child) {
+        margin-right: 4rem;
+         @include respond(tab-port) {
+            margin-right: 0;
+            margin-bottom: 3rem;
+        }
+    }
+
+
+    &:hover {
+        box-shadow: 0 0 2rem rgba(#000, .4);
+        transform: translateY(-1rem);
+    }
+
+    &__icon {
+        font-size: 5rem;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: $color-primary-light;
+
+        @supports (background-clip: text) or (-webkit-background-clip: text) {
+            background-image: linear-gradient(to bottom left, $color-primary-light 40%, $color-primary-dark 70%);
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    }
+
+    h3 {
+        width: 100%;
+    }
+    p {
+        width: 100%;
+    }
+
+
+
+
+}

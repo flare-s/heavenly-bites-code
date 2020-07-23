@@ -1,0 +1,204 @@
+.card {
+    perspective: 700px;
+    -ms-perspective: 700px;
+    position: relative;
+    min-height: 50rem;
+    margin-bottom: 20rem;
+    backface-visibility: hidden;
+    flex: 0 1 30rem;
+
+    @include respond(tab-port) {
+        flex: none;
+        min-width: 28rem;
+        width: 35rem;
+
+        &:not(:last-child) {
+            margin-bottom: 4rem;
+        } 
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        transform:  translateX(-.5rem) translateY(-.5rem);
+        border-radius: 5px;
+        background-color: $color-primary-dark;
+        z-index: -1;
+        box-shadow: 0rem 0rem 1rem transparent;
+        transition: transform .3s, box-shadow .3s .3s;
+    }
+
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        transform:  translateX(.5rem) translateY(.5rem);
+        background-color: $color-secondary;
+        border-radius: 5px;
+        z-index: -1;
+        box-shadow: 0rem 0rem 1rem transparent;
+        transition: transform .3s, box-shadow .3s .3s;
+
+    }
+
+    &:hover {
+
+        &::before{
+            transform: translateX(0) translateY(0);
+            box-shadow: 0rem 0rem 1.5rem .5rem $color-secondary;
+        }
+
+        &::after{
+            transform: translateX(0) translateY(0);
+            box-shadow: 0rem 0rem 1.5rem .5rem $color-primary-dark;
+        }
+    }
+
+    
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+    &__front, &__back {
+        border-radius: 5px;
+        transform-style: preserve-3d;
+
+    }
+
+    &__front {
+        background-color: #fff;
+        position: relative;
+        overflow: hidden;
+
+        
+        
+    }
+
+    &__back {
+        transform: rotateX(-90deg);
+        transform-origin: top center;
+        transition: transform .6s ease-in-out, opacity .2s;
+        opacity: 0;
+        backface-visibility: hidden;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+
+        &--1 {
+            background-image: linear-gradient(to bottom, $color-primary-light 30%, $color-primary-dark 70%);
+        }
+
+        @include respond(tab-port)   { 
+            position: relative;
+            transform: rotateX(0);
+            transform-origin: none;
+            transition: none;
+            opacity: 1;
+        }
+    }
+
+    
+
+    &:hover &__back {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+
+    
+
+
+
+
+    &__pic {
+        min-height: 25rem;
+        background-size: cover;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        &--1 {
+            background-image: linear-gradient(to bottom, rgba($color-primary-light, .5) 30%, rgba($color-primary-dark, .5) 70%),
+            url(../img/join.svg);
+            background-size: contain;
+        }
+    }
+
+    &__heading {
+        text-transform: uppercase;
+        position: absolute;
+        top: 3rem;
+        left: 35%;
+        width: 100%;
+        line-height: 1.1;
+        padding: 5px 0;
+        text-align: center;
+        font-size: 2.4rem;
+        font-weight: 400;
+        background-image: linear-gradient(to bottom, rgba($color-primary-light, .5) 30%, rgba($color-primary-dark, .5) 70%);
+        color: #fff;
+        transform: rotate(45deg);
+
+        @media only screen and (max-width: $tab-port)   { 
+            transform: rotate(0deg);
+            top: 0;
+            left: 0;
+        }
+        
+    }
+
+
+
+    &__list {
+        padding: 1rem 4rem;
+        text-align: center;
+        list-style: none;
+        font-size: $default-font-size;
+    }
+
+    &__item {
+        padding: 1rem;
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-grey-light-3;
+        }
+    }
+
+    &__back-content {
+        padding: 1.5rem 0;
+        width: inherit;
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        
+    }
+
+    &__small {
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    &__price {
+        color: #fff;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    
+}

@@ -1,0 +1,36 @@
+/* everything related to basic set up */
+*,
+*::after,
+*::before{
+    margin: 0; /* resetting margin and padding */
+    padding: 0;
+    box-sizing: inherit; /* it would be inherited from the body */
+}
+
+/* we didnt move the font size to typography bc its mostly relate to setting up the page responsively */
+html {
+     font-size: 62.5%; // so it would be 10px[16px (browser default font size) /10 = 62.5, so we can use rem unit to make responsive contenet
+     overflow-x: hidden;
+     box-sizing: border-box; /* so the width and height dont get affected by the padding and margin */
+} 
+
+body{ 
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom, rgba($color-primary, 1), rgba($color-primary-dark, 1));
+    background-color: $color-primary;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    
+    @include respond(desktop) {
+        font-size: 1.8rem;
+    }
+
+
+
+    
+}
+
+::selection { // this to add style to highlighted text when we click with the mouse
+    background-color: $color-primary-dark;
+    color: $color-white;
+}

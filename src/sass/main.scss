@@ -1,0 +1,174 @@
+/* importing all the partial code files to the main file, and the order of it is IMPORTANT!! */
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/containers";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "pages/home";
+
+@import "components/background-vid";
+@import "components/button";
+@import "components/card";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/story";
+@import "components/modal";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+commands: 
+1- npm init // that so the package.json get created and with the package file we can always install the node sass and work on projects from anywhere
+2- npm install node-sass --save-dev // it will install all the files needed to work from anywhere 
+after we create the sass folder and scss file we need a command to transfer the files from the scss file to the css file 
+4- in the package.json file there is "scripts" inside that line we write "compile:sass": "node-sass sass/main.scss[sass file directory] css/style.css[css file directory]
+5- in the terminal we have to write the command line: npm run compile:sass and we have to keep the terminal open so the data in the scss file transfered to the css file
+6- on another computer if u have the package.json file with u just go to terminal and command line npm install that will install the node-modules file 
+7- if u want to uninstall a package just do npm uninstall [package name]
+other commands:
+1- cd [file name] // to go to files
+2- cd .. //[to go back one step back to the previous file]
+3- ls/dir // to see the content of a file 
+4- mkdir [folder name] // to make a folder 
+5- touch [file name/s] // to make file/s
+6- mv [filename] [file directory/] // to move file
+7- cp [file name] [file directory/] // to copy file 
+8- rm [file name] to remove file
+9- rm -r [file name] to remove folder
+*/
+
+
+
+
+
+/*
+    <nav>
+  <ul class="navigation">
+    <li><a href="#">about us</a></li>
+    <li><a href="#">contact us</a></li>
+    <li><a href="#">fuck u</a></li>
+  </ul>
+  <div class="buttons">
+    <a href="#" class="btn-main">sign up</a>
+    <a href="#" class="btn-hot">get a piece</a>
+  </div>
+</nav>
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+$color-primary: #defd4e;
+$color-secondary: #dfed12;
+$color-teritary: #efde15;
+$color-text-dark: #333;
+$color-text-light: #eee;
+$button-width: 150px;
+
+@mixin clearfix{
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin link-style($col){
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $col;
+}
+
+
+nav {
+  margin: 30px;
+  background-color: $color-primary;
+  
+  
+  @include clearfix;
+}
+
+.navigation {
+   list-style: none;
+   float: left;
+    
+    
+   li{
+     display: inline-block;
+     margin-left: 20px;
+      
+     &:first-child {
+       margin: 0;
+     }
+      
+     a:link {
+       @include link-style($color-text-dark);
+     }
+   }
+ }
+.buttons{
+  float: right;
+}
+
+%btn-placeholder{
+  display: inline-block;
+  width: $button-width;
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  @include link-style($color-text-light);
+}
+
+.btn-main{
+  &:link{
+    @extend %btn-placeholder;
+      
+    background-color: $color-secondary;
+  }
+  &:hover{
+    background-color: darken($color-secondary, 3%);
+  }
+}
+
+.btn-hot{
+  &:link{
+    @extend %btn-placeholder;
+    background-color: $color-teritary;
+  }
+  &:hover{
+    background-color: lighten($color-teritary, 5%);
+  }
+}
+
+*/

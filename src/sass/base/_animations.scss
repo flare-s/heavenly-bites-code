@@ -1,0 +1,211 @@
+/* we put in here everything related to animation */
+
+@keyframes moveInLeft { /* animation name so we can add it to elements */
+
+    0% {
+        opacity: 0; /* at the start we want it to be hidden */
+        transform: translateX(-10rem);  /*and to move to the left thats why -100px the (-) value move to the left*/
+    }
+
+    50% {
+        transform: rotate(45deg); /* rotate element on 50 %*/
+        
+    }
+
+    80% {
+        /*we can add more than one effect*/
+        transform: translateX(2rem); /* so at 80% it will move a little to the right hense the positive 20px */
+        
+    }
+
+    100% {
+        opacity: 1; /* to make a fade in effect at first it was 0 and then to 1 */
+        transform: translateX(0); /* so the element return to it place at the end of the animation */
+        
+        
+    }
+}
+
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0; /* at the start we want it to be hidden */
+        transform: translateX(10rem); /*rotate(0deg)*/ /* move to the right 100px */
+    }
+
+    50%{
+        transform: rotate(-45deg); /* rotate element on 50 %*/
+    }
+
+    80% {
+        transform: translateX(-2rem); /* move to the left before the end of the animation */
+    }
+
+    100% {
+        opacity: 1; /* return to full opacity */
+        transform: translateX(0); /* so the element return to it place at the end of the animation */
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0; /* we want the element to be hidden when the animation start */
+        transform: translateY(6rem); /* positioning the element that the animaton been applied to a little bit down at the begining*/
+    }
+
+
+    100% {
+        opacity: 1; /* return to full opacity */
+        transform: translateY(0); /* so the element return to it place at the end of the animation */
+    }
+}
+
+@keyframes shakeIt { 
+    0%{
+        transform: rotate(0);
+    }
+
+    10%{
+        transform: rotate(35deg);
+    }
+
+    30%{
+        transform: rotate(-35deg);
+    }
+
+    60%{
+        transform: rotate(35deg);
+    }
+
+    80%{
+        transform: rotate(-35);
+    }
+
+    100%{
+        transform: rotate(0);
+    }
+}
+
+
+
+
+// scroll animations
+@keyframes fadeIn {
+    0% {
+        transform: translateY(20rem);
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(40rem);
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-40rem);
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+.js-anim {
+    opacity: 0;
+    @media screen and (max-width: 62em) {
+        opacity: 1;
+    }
+}
+
+.anim {
+    animation: show .5s ease-in-out forwards;
+    // @media screen and (max-width: 62em) {
+    //     animation: none;
+    // }
+}
+
+.un-anim {
+    animation: hide .5s ease-in-out forwards;
+    // @media screen and (max-width: 62em) {
+    //     animation: none;
+    // }
+}
+
+
+
+.js-wp-1,
+.js-wp-2,
+.js-wp-3,
+.js-wp-4,
+.js-wp-5,
+.js-wp-6 {
+    opacity: 0; // making the animated elements not show at first
+}
+.animation { // when this class be added to the animated elements by the jquery code the animation will start
+    animation: fadeIn .8s ease-in-out;
+    opacity: 1; // so the opacity stay visible after the animation
+}
+
+.animation-1 {
+    animation: fadeInRight .8s ease-in-out;
+    opacity: 1;
+}
+
+.animation-2 {
+    animation: fadeInLeft .8s ease-in-out;
+    opacity: 1;
+}

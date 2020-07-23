@@ -1,0 +1,56 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+$desktop: 76em;
+$tab-land: 75em;
+$tab-port: 62em;
+$phone: 36em;
+
+@mixin respond($bp) {
+
+    @if $bp == phone {
+        @media only screen and (max-width: $phone) { @content }; 
+    }
+
+    @if $bp == tab-port {
+        @media only screen and (max-width: $tab-port) { @content }; 
+    }
+
+    @if $bp == tab-land {
+        @media only screen and (max-width: $tab-land) { @content }; 
+    }
+
+    @if $bp == desktop {
+        @media only screen and (min-width: $desktop) { @content }; 
+    }
+
+    
+
+}
+
+@mixin responsive($query, $brp) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2)      and ($query: $brp),
+        only screen and (   min--moz-device-pixel-ratio: 2)      and ($query: $brp),
+        only screen and (     -o-min-device-pixel-ratio: 2/1)    and ($query: $brp),
+        only screen and (        min-device-pixel-ratio: 2)      and ($query: $brp),
+        only screen and (                min-resolution: 192dpi) and ($query: $brp),
+        only screen and (                min-resolution: 2dppx)  and ($query: $brp) {
+            @content;
+    }
+}

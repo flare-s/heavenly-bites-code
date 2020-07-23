@@ -1,0 +1,43 @@
+// colors
+$color-blue: #107c8f;
+$color-blue-light: lighten(#107c8f, 3%);
+$color-blue-dark: lighten(#107c8f, 5%);
+
+
+$color-green: #55c57a;
+$color-green-light:#7ed56f;
+$color-green-dark:#28b485;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-light-3: #cecece;
+
+
+// used colors
+$color-secondary: $color-blue;
+$color-secondary-light: $color-blue-light;
+$color-secondary-dark: $color-blue-dark;
+$color-primary: $color-green;
+$color-primary-light: $color-green-light;
+$color-primary-dark: $color-green-dark;
+
+
+
+//font
+$default-font-size: 1.6rem;
+
+//utilities 
+$m-sm: 2rem;
+$m-md: 4rem;
+$m-lg: 8rem;
+
+@include respond($tab-port) {
+    $m-lg: 6rem;
+}
