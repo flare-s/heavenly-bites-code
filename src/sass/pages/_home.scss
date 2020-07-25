@@ -46,6 +46,10 @@
              rgba($color-primary-dark, .3)),
             url(../img/healthy-sm-2x.jpg);
     }
+
+    @media screen and (hover: none) {
+        background-attachment: scroll;
+    }
 }
 
 .section-about {
