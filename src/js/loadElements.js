@@ -1,5 +1,5 @@
 import "intersection-observer";
-const elements = Array.prototype.slice.call(document.querySelectorAll('.js-anim'));
+// const elements = Array.prototype.slice.call(document.querySelectorAll('.js-anim'));
 const options = {
     threshold: 0.15
 };
@@ -10,7 +10,7 @@ const options = {
 
 
 //observing every element with the class of js-anim, to change the opacity of the element depending if it in the viewport or not
-const observer = new IntersectionObserver((entries, observer) => {
+export const animationObserver = new IntersectionObserver((entries, animationObserver) => {
     entries.forEach(entry => {
             if (entry.intersectionRatio > 0.15) {
                 entry.target.classList.remove('un-anim');
@@ -21,7 +21,7 @@ const observer = new IntersectionObserver((entries, observer) => {
             }
     })
 }, options);
-elements.forEach(element => observer.observe(element));
+// elements.forEach(element => observer.observe(element));
 
 
 

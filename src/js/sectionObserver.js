@@ -1,7 +1,7 @@
 "use strict";
 import "intersection-observer";
 
-const sections = Array.prototype.slice.call(document.querySelectorAll('[data-name]'));
+// const sections = Array.prototype.slice.call(document.querySelectorAll('[data-name]'));
 export const bubble = document.querySelector('.bubble');
 let sectionName, activeAnchor, shape, shapeSpecs;
 
@@ -13,7 +13,7 @@ const SectionOptions = {
 }
 
 //function that get the bubble element to move to the targeted link in the nav
-function setBubble() {
+export function setBubble() {
 
     shape = activeAnchor.getBoundingClientRect();
     shapeSpecs = {
@@ -29,11 +29,11 @@ function setBubble() {
 
 }
 // tab-port media query
-const mq = window.matchMedia( "(min-width: 62em)" );
+export const mq = window.matchMedia( "(min-width: 62em)" );
 
 
 // setting an observer on sections to detect which nav link the bubble element will go to
-const sectionObserver = new IntersectionObserver((entries) => {
+export const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         // the bubble wont show unless the media query condition is true
         if (mq.matches) {
@@ -48,13 +48,13 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, SectionOptions);
 
 
-sections.forEach(section => sectionObserver.observe(section));
-//an event on resizing to check the media query if its true the bubble will show and also adjusting it position on resizing
-window.addEventListener("resize", (e) => {
-    if (mq.matches) {
-        setBubble();
-    }
-});
+// sections.forEach(section => sectionObserver.observe(section));
+// //an event on resizing to check the media query if its true the bubble will show and also adjusting it position on resizing
+// window.addEventListener("resize", (e) => {
+//     if (mq.matches) {
+//         setBubble();
+//     }
+// });
 
 
 

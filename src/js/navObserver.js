@@ -1,18 +1,18 @@
 import "intersection-observer";
 import {bubble} from "./sectionObserver";
-const cta = document.querySelector('.cta-box');
-const header = document.querySelector('header');
+export const cta = document.querySelector('.cta-box');
+export const header = document.querySelector('header');
 
 const navOptions = {
     threshold: 0.3
     /*threshold: [...Array(100).keys()].map(x => x / 100)*/
 };
 
-const group = [header, cta];
+// const group = [header, cta];
 
 
 //observing tha call to action area to see when to apply the fixed nav class and when to remove it
-const navObserver = new IntersectionObserver((entries,navObserver) => {
+export const navObserver = new IntersectionObserver((entries,navObserver) => {
     entries.forEach((entry) => {
         if (entry.target === cta) {
             if(entry.intersectionRatio < 0.3) {
@@ -34,6 +34,6 @@ const navObserver = new IntersectionObserver((entries,navObserver) => {
     
 }, navOptions);
 
-group.forEach(el => {
-    navObserver.observe(el);
-});
+// group.forEach(el => {
+//     navObserver.observe(el);
+// });

@@ -1,7 +1,7 @@
 import "intersection-observer";
-const images = Array.prototype.slice.call(document.querySelectorAll('[data-src]'));
+// const assets = Array.prototype.slice.call(document.querySelectorAll('[data-src]'));
 
-const imagesOptions = {
+const assetsOptions = {
     //to extend the bottom viewport margin to load the image a liitle bit before the image be in the viewport range
     rootMargin: '0px 0px 100px 0px'
 };
@@ -20,18 +20,18 @@ function loadImages(image) {
 };
 
 //setting an observer on elements with data-src attribute to lazyload it's src
-const imagesObserver = new IntersectionObserver((entries, imagesObserver) => {
+export const assetsObserver = new IntersectionObserver((entries, assetsObserver) => {
     entries.forEach(entry => {
         if(entry.isIntersecting) {
             loadImages(entry.target);
-            imagesObserver.unobserve(entry.target);
+            assetsObserver.unobserve(entry.target);
         } else {
             return;
         }
         
     })
-}, imagesOptions);
+}, assetsOptions);
 
-images.forEach(image => {
-    imagesObserver.observe(image);
-});
+// assets.forEach(asset => {
+//     imagesObserver.observe(image);
+// });

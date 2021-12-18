@@ -1,8 +1,6 @@
-const webpack = require('webpack');
 const path = require("path");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 
@@ -27,7 +25,8 @@ const config = {
                             [
                                 '@babel/preset-env',
                                 {
-                                    "useBuiltIns": "entry",
+                                    useBuiltIns: "usage",
+                                    corejs: '3',
                                 }
                             ]
                         ],
@@ -35,15 +34,22 @@ const config = {
                     }
                 }
             },
-            {
-                test: /\.(png|svg|jpg|gif|mp4)$/,
-                use: {
-                    loader:"file-loader",
-                    options: {
-                        name: 'img/[name].[ext]',
+            // {
+            //     test: /\.(png|svg|jpg|gif|mp4)$/,
+            //     use: {
+            //         loader:"file-loader",
+            //         options: {
+            //             name: 'img/[name].[ext]',
     
-                    }
+            //         }
                     
+            //     }
+            // },
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+                type: 'asset',
+                generator: {
+                    filename: './img/[hash][ext][query]'
                 }
             },
             {
@@ -51,46 +57,38 @@ const config = {
                 use: [
                     {
                         loader: "html-loader",
-                        options: { 
+                        
+                        options: {
                             minimize: true,
-                            attributes: {
+                            sources: {
                                 list: [
-                                  {
-                                    tag: 'img',
-                                    attribute: 'src',
-                                    type: 'src',
-                                  },
-                                  {
-                                    tag: 'img',
-                                    attribute: 'srcset',
-                                    type: 'srcset',
-                                  },
-                                  {
-                                    tag: 'img',
-                                    attribute: 'data-src',
-                                    type: 'src',
-                                  },
-                                  {
-                                    tag: 'img',
-                                    attribute: 'data-srcset',
-                                    type: 'srcset',
-                                  },
-                                  {
-                                    tag: 'video',
-                                    attribute: 'src',
-                                    type: 'src',
-                                  },
-                                  {
-                                    tag: 'video',
-                                    attribute: 'data-src',
-                                    type: 'src',
-                                  },
-                                  
-                                  // More attributes
-                                ],
-                            }    
+                                    // All default supported tags and attributes
+                                    "...",
+                                    {
+                                        tag: "img",
+                                        attribute: "data-src",
+                                        type: "src",
+                                    },
+                                    {
+                                        tag: "img",
+                                        attribute: "data-srcset",
+                                        type: "srcset",
+                                    },
+                                    {
+                                        tag: 'video',
+                                        attribute: 'src',
+                                        type: 'src',
+                                      },
+                                      {
+                                        tag: 'video',
+                                        attribute: 'data-src',
+                                        type: 'src',
+                                      }
+                                ]
+                            }
+                        }    
 
-                        }
+                        
                     }
                 ]
             },
@@ -116,10 +114,6 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-        //     intersectionObserver: 'intersection-observer',
-            // objectFitVideos: 'object-fit-videos',
-        }),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html",
@@ -130,7 +124,11 @@ const config = {
             chunkFilename: "[id].css"
         }),
 
-    ]
+    ],
+    devServer: {
+        static: path.join(__dirname, 'dist'),
+        port: 9000,
+    }
 };
 
 
