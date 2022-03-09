@@ -6,7 +6,7 @@
   "homepage": "https://flare-s.github.io/heavenly-bites-code",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack serve",
+    "start": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

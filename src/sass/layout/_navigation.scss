@@ -1,5 +1,4 @@
 .navigation {
-    
 
     .container {
         display: flex;
@@ -83,7 +82,8 @@
     
     &__nav {
         @include respond(tab-port) {
-            height: 100vh;
+            min-height: 100vh;
+            height: 100%;
             background-color: rgba( $color-primary-dark, .7);
             position: absolute;
             top: 0;
@@ -106,6 +106,8 @@
             height: 100%;
             flex-direction: column;
             justify-content: center;
+            overflow-y: auto;
+            overflow-x: hidden;
             
         }
 
@@ -146,10 +148,11 @@
                 display: block;
                 width: 100%;
                 border-bottom: 2px solid rgba( #fff, .5);
-                background-image: linear-gradient(45deg, transparent 50%, $color-primary-light 50%);
-                background-size: 300%;
+                background-image: linear-gradient(90deg, transparent 50%, $color-primary-light 50%);
+                background-size: 200%;
                 background-position: 0;
                 transition: background-position .5s ease-in-out;
+                padding: 8px 0;
             }
 
         }
